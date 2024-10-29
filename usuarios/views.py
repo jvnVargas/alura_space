@@ -42,7 +42,7 @@ def cadastro(request):
             senha=form["senha_1"].value()
             
             if User.objects.filter(username=nome).exists():
-                messages.success(request, "Esse usuário já existe!")
+                messages.error(request, "Esse usuário já existe!")
                 return redirect('cadastro')
             
             usuario = User.objects.create_user(
